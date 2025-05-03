@@ -1,0 +1,105 @@
+  .bg-secondary {
+    background-color: lightgray !important;
+    color: 000000;
+  }
+
+  .form-select-sm {
+    height: 25px;
+    font-size: 12px;
+    background-color: lightgray;
+  }
+
+  .form-control-sm {
+    height: 25px !important;
+    min-height: 25px !important;
+    font-size: 12px;
+  }
+
+  /* Tab Row */
+  .tab-strip {
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  
+  .tab-strip span {
+    padding: 2px 8px;
+    margin-right: 4px;
+    background: #fff3cd;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: normal;
+  }
+  
+  .tab-strip span.active {
+    background-color: #ffffff;
+    font-weight: bold;
+    color: red;
+  }
+
+  .section-box {
+    border: 1px solid #999;
+    padding: 0;
+    margin-bottom: 1rem;
+    position: relative;
+    background-color: white;
+  }
+
+  .table-box-header {
+    background-color: #4a6a8a;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .section-header {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: white;
+    padding: 0 6px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+  }
+  
+  .section-body {
+    padding: 12px 8px 6px 8px;
+  }
+  
+  .table-loaded-trades {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table-loaded-trades thead th {
+    background-color: lightgrey;
+    color: black;
+    font-weight: normal;
+    font-size: 12px;
+    padding: 3px 6px;
+    border: 1px solid white;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .table-loaded-trades td {
+    font-size: 12px;
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+  }
+  
+  .table-total-row td {
+    background-color: #eaeaea;
+    font-weight: bold;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    margin-top: 2px;
+  }
+  
