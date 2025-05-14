@@ -3,17 +3,12 @@
   border: 1px solid #cccccc;
   color: #333;
   font-weight: 500;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 10px;
-  font-size: 14px;
+  font-size: 1rem;          /* resizes with zoom */
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: normal;      /* allows wrapping */
+  word-break: break-word;   /* break long words if needed */
   box-sizing: border-box;
-}
-
-
-@media (max-width: 600px) {
-  .trade-button {
-    font-size: 12px;
-    padding: 3px 8px;
-  }
+  display: inline-block;
+  max-width: 100%;          /* prevent overflow in containers */
 }
