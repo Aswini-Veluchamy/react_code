@@ -12,3 +12,18 @@
   display: inline-block;
   max-width: 100%;          /* prevent overflow in containers */
 }
+
+
+
+.trade-button {
+  background-color: #fffacc;
+  border: 1px solid #cccccc;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;         /* Zoom-friendly */
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;     /* Keep in one line */
+  box-sizing: border-box;
+  display: inline-block;
+}
