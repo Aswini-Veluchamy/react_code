@@ -3,27 +3,12 @@
   border: 1px solid #cccccc;
   color: #333;
   font-weight: 500;
-  font-size: 1rem;          /* resizes with zoom */
-  padding: 6px 12px;
+  font-size: 1rem;          /* zoom-friendly */
+  height: 30px;             /* fixed height */
+  line-height: 30px;        /* match line-height to height */
+  padding: 0 12px;          /* only horizontal padding */
   border-radius: 4px;
-  white-space: normal;      /* allows wrapping */
-  word-break: break-word;   /* break long words if needed */
-  box-sizing: border-box;
-  display: inline-block;
-  max-width: 100%;          /* prevent overflow in containers */
-}
-
-
-
-.trade-button {
-  background-color: #fffacc;
-  border: 1px solid #cccccc;
-  color: #333;
-  font-weight: 500;
-  font-size: 1rem;         /* Zoom-friendly */
-  padding: 6px 12px;
-  border-radius: 4px;
-  white-space: nowrap;     /* Keep in one line */
+  white-space: nowrap;      /* one line only */
   box-sizing: border-box;
   display: inline-block;
 }
