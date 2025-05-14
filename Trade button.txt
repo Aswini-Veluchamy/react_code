@@ -1,0 +1,12 @@
+.trade-button {
+  background-color: #fffacc;
+  border: 1px solid #cccccc;
+  color: #333;
+  font-weight: 500;
+  padding: 4px 10px;
+  font-size: 14px;
+  white-space: nowrap; /* prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
