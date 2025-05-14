@@ -3,12 +3,18 @@
   border: 1px solid #cccccc;
   color: #333;
   font-weight: 500;
-  font-size: 1rem;          /* zoom-friendly */
-  height: 30px;             /* fixed height */
-  line-height: 30px;        /* match line-height to height */
-  padding: 0 12px;          /* only horizontal padding */
+
+  height: 30px;
+  line-height: 30px;
+
+  font-size: clamp(11px, 1.2vw, 14px); /* auto-resizes font */
+  padding: 0 12px;
+
   border-radius: 4px;
-  white-space: nowrap;      /* one line only */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   box-sizing: border-box;
   display: inline-block;
+  vertical-align: middle;
 }
