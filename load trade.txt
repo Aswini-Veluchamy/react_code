@@ -1,0 +1,90 @@
+      <div className="load-trades-box">
+        <Row className="gx-2 gy-2">
+          <Col md={12}>
+            <div className="section-title">Clearing House: <span style={{ color: '#fff', backgroundColor: 'rgb(255 191 0)' }}>ICE Clear Credit LLC</span></div>
+            <div className="d-flex flex-wrap gap-2">
+              <Button size="sm" className="btn-sm">Load Trades from File</Button>
+              <Button size="sm" className="btn-sm">Load TradeID from File</Button>
+            </div>
+          </Col>
+
+          <Col md={12}>
+            <div className="d-flex align-items-center gap-2">
+              <Form.Group className="mt-2">
+                <Form.Label className="mb-0" style={{ whiteSpace: 'nowrap' }}>Trade IDs</Form.Label>
+                <Form.Control as="textarea" rows={2} style={{ width: '250px', resize: 'none' }} />
+              </Form.Group>
+              <Button size="sm" className="btn-sm">Load TradeID List (UI)</Button>
+              <Button size="sm" className="btn-sm">Clear TradeIDs</Button>
+            </div>
+          </Col>
+
+          <Col md={12}>
+            <div className="d-flex align-items-center gap-2">
+              <Form.Group className="mt-2">
+                <Form.Label className="mb-0" style={{ whiteSpace: 'nowrap' }}>Book Names - comma separated</Form.Label>
+                <Form.Control as="textarea" rows={3} style={{ width: '250px', resize: 'none' }} />
+              </Form.Group>
+              <Button size="sm" className="btn-sm">Load Trades from Books</Button>
+              <Button size="sm" className="btn-sm">Clear Books</Button>
+            </div>
+          </Col>
+
+          <Col md={12}>
+            <div className="d-flex align-items-center gap-2">
+              <Form.Group className="mt-2">
+                <Form.Label className="mb-0">DataSet FullName</Form.Label><Form.Control size="sm" value={'Official'} />
+              </Form.Group>
+              <Form.Group className="mt-2">
+                <Form.Label className="mb-0">Scenario FullName</Form.Label><Form.Control size="sm" value={'Base'} />
+              </Form.Group>
+            </div>
+          </Col>
+        </Row>
+      </div>
+
+
+
+
+
+
+
+
+/* Load Trades Block Styling */
+.load-trades-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  width: 800px;
+  margin-bottom: 1rem;
+}
+
+.load-trades-box .section-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.load-trades-box .btn-sm {
+  padding: 3px 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  background-color: #fff3cd;
+  color: #000;
+}
+
+.load-trades-box .btn-sm:hover {
+  background-color: #e6e6e6;
+}
+
+.load-trades-box .form-label {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.load-trades-box .info-labels {
+  font-size: 11px;
+  margin-top: 6px;
+  color: #333;
+  line-height: 1.4;
+}
