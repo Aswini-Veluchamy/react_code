@@ -1,0 +1,584 @@
+import React, { useState } from 'react';
+import { Box, Grid, Typography, Select, MenuItem, Tabs, Tab, Paper, TextField, Button, InputLabel, FormControl } from '@mui/material';
+
+const TradeEntryFormMUI = () => {
+  const [rows, setRows] = useState([]);
+
+  const handleAdd = () => {
+    const inputs = document.querySelectorAll('.section-box input, .section-box select');
+    const values = Array.from(inputs).map(input => input.value);
+
+    const row = {
+      productType: values[0],
+      issuerName: values[1],
+      instrumentId: values[2],
+      withhold: values[3],
+      subordination: values[4],
+      docClause: values[5],
+      currency: values[6],
+      coupon: values[7],
+      tenor: values[8],
+      maturityDate: values[9],
+      bs: values[11],
+      size: values[12],
+      notionalNc: values[13],
+      notionalUsd: values[14],
+      actualFunding: values[15],
+      paymentFreq: values[16],
+      standardFunding: values[17],
+    };
+
+    setRows(prev => [...prev, row]);
+  };
+
+  return (
+        <div className="d-flex justify-content-center mt-3">
+      <div style={{ width: '100%' }}>
+        
+        {/* Top Tab Header */}
+        <div
+          className="d-flex tab-header border-bottom bg-light"
+          style={{ fontSize: '13px' }}
+        >
+          <div
+            className="px-3 py-1 border border-bottom-0 bg-secondary"
+            style={{ cursor: 'pointer' }}
+          >
+            Load Batch Trades
+          </div>
+          <div
+            className="px-3 py-1 border border-bottom-0 bg-white"
+            style={{ cursor: 'pointer' }}
+          >
+            Trade Entry
+          </div>
+          <div
+            className="px-3 py-1 border border-bottom-0 bg-secondary"
+            style={{ cursor: 'pointer' }}
+          >
+            Manage Portfolio
+          </div>
+        </div>
+
+        {/* Form Section */}
+        <div className="border border-top-0 p-2 bg-white">
+    <Box className="container-fluid mt-1" sx={{ fontSize: '12px' }}>
+      {/* Key Fields */}
+      <Box className="section-box" sx={{ width: '800px' }}>
+        <div className="section-header">Key Fields</div>
+        <div className="section-body">
+          <Grid container spacing={1}>
+            <Grid item md={2}>
+              <label className="mb-1">Product Type</label><br></br>
+              <select className="form-select-sm" defaultValue="CD Swap">
+                <option>CD Swap</option>
+              </select>
+            </Grid>
+            <Grid item md={5}>
+              <label className="mb-1">Issuer Name</label><br />
+              <select className="form-select-sm" style={{ width: '100%' }}>
+              </select>
+            </Grid>
+
+            <Grid item md={2}>
+              <label className="mb-1">Instrument ID</label><br></br>
+              <input className="form-control-sm" defaultValue="007GB6" />
+            </Grid>
+            <Grid item md={1}>
+              <label className="mb-1">Withhold</label><br></br>
+              <input className="form-control-sm" />
+            </Grid>
+          </Grid>
+        </div>
+      </Box>
+
+      {/* Subordination Fields */}
+      <Box className="section-box mt-2" sx={{ width: '800px' }}>
+        <div className="section-header">&nbsp;</div>
+        <div className="section-body">
+          <Grid container spacing={1} className="mt-1">
+            <Grid item md={2}>
+              <label className="mb-1">Subordination</label><br></br>
+              <select className="form-select-sm">
+                <option>Sr Unsecured</option>
+              </select>
+            </Grid>
+            <Grid item md={1}>
+              <label className="mb-1">Doc Clause</label><br></br>
+              <select className="form-select-sm">
+                <option>CR14</option>
+              </select>
+            </Grid>
+            <Grid item sm={2}>
+              <label className="mb-1">Currency</label><br></br>
+              <select className="form-select-sm">
+                <option>EUR</option>
+              </select>
+            </Grid>
+            <Grid item sm={2}>
+              <label className="mb-1">Coupon</label><br></br>
+              <input className="form-control-sm" defaultValue="100" />
+            </Grid>
+            <Grid item sm={2}>
+              <label className="mb-1">Tenor</label><br></br>
+              <input className="form-control-sm" />
+            </Grid>
+            <Grid item sm={2}>
+              <label className="mb-1">Maturity</label><br></br>
+              <div className="d-flex">
+                <input type="date" className="form-control-sm me-1" defaultValue="2030-06-20" />
+                <select className="form-select-sm">
+                  <option>5Y</option>
+                </select>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+      </Box>
+
+      {/* B/S Fields */}
+      <Box className="section-box mt-2" sx={{ width: '800px' }}>
+        <div className="section-header">&nbsp;</div>
+        <div className="section-body">
+          <Grid container spacing={1} className="mt-1">
+            <Grid item sm={2}>
+              <label className="mb-1">B/S</label><br></br>
+              <select className="form-select-sm">
+                <option>Buy</option>
+              </select>
+            </Grid>
+            <Grid item sm={2}>
+              <label className="mb-1">Size (MM)</label><br></br>
+              <input className="form-control-sm" />
+            </Grid>
+            <Grid item md={2}>
+              <label className="mb-1">Notional (NC)</label><br></br>
+              <input className="form-control-sm" />
+            </Grid>
+            <Grid item md={2}>
+              <label className="mb-1">Notional ($)</label><br></br>
+              <input className="form-control-sm" />
+            </Grid>
+          </Grid>
+        </div>
+      </Box>
+
+      {/* CSA Fields */}
+      <Box className="section-box mt-2" sx={{ width: '800px' }}>
+        <div className="section-header">CSA Fields</div>
+        <div className="section-body">
+          <Grid container spacing={1} className="mt-1">
+            <Grid item md={2}>
+              <label className="mb-1">Actual Funding Id</label><br></br>
+              <select className="form-select-sm">
+                <option>EUROIS</option>
+              </select>
+            </Grid>
+            <Grid item md={2}>
+              <label className="mb-1">Payment Freq.</label><br></br>
+              <select className="form-select-sm">
+                <option>Quarterly</option>
+              </select>
+            </Grid>
+            <Grid item md={3}>
+              <label className="mb-1">Standard Funding Id</label><br></br>
+              <input className="form-control-sm" defaultValue="EUROI" />
+            </Grid>
+            <Grid item md={3} className="d-flex align-items-end justify-content-end">
+              <Button size="small" className="bg-secondary me-2" onClick={handleAdd} sx={{ color: 'black', textTransform: 'math-auto' }}>Add</Button>
+              <Button size="small" className="bg-secondary" sx={{ color: 'black', textTransform: 'math-auto' }}>Reset</Button>
+            </Grid>
+          </Grid>
+        </div>
+      </Box>
+
+      <Box className="section-box mt-2" sx={{ width: '800px' }}>      
+      {/* Main Section */}
+      <Paper elevation={0} sx={{ p: 2, bgcolor: '#f9f9f9', border: '1px solid #ddd', width: '800px', mx: 'auto' }}>
+        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+          Clearing House: <span style={{ color: '#fff', backgroundColor: 'rgb(255 191 0)' }}>ICE Clear Credit LLC</span>
+        </Typography>
+
+        {/* Buttons */}
+        <Box sx={{ mt: 1 }}>
+          <Button
+            size="small"
+            sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
+          >
+            Load Trades from File
+          </Button>
+          <Button
+            size="small"
+            sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
+          >
+            Load TradeID from File
+          </Button>
+          
+        </Box>
+
+        {/* Trade IDs and Book Names */}
+        <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+  <Grid item md={6}>
+    <Typography variant="body2" sx={{ fontSize: '12px' }}>
+      Trade IDs
+    </Typography>
+    <TextField variant="outlined" size="small" multiline rows={3} fullWidth sx={{ width: '250px', resize: 'none', fontSize: '12px' }} />
+  </Grid>
+  <Grid item md={2}>
+    <Button
+      size="small"
+      sx={{
+        bgcolor: '#fff3cd',
+        fontSize: '12px',
+        textTransform: 'none', // Use none instead of math-auto for better compatibility
+        color: 'black',
+        border: '1px solid #ccc',
+        '&:hover': { bgcolor: '#e6e6e6' },
+      }}
+    >
+      Load TradeID List (UI)
+    </Button>
+  </Grid>
+  <Grid item md={2}>
+    <Button
+      size="small"
+      sx={{
+        bgcolor: '#fff3cd',
+        fontSize: '12px',
+        textTransform: 'none',
+        color: 'black',
+        border: '1px solid #ccc',
+        ml: 1,
+        '&:hover': { bgcolor: '#e6e6e6' },
+      }}
+    >
+      Clear TradeIDs
+    </Button>
+  </Grid>
+</Grid>
+
+
+        <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+  <Grid item md={6}>
+    <Typography variant="body2" sx={{ fontSize: '12px' }}>
+      Book Names - comma separated
+    </Typography>
+    <TextField variant="outlined" size="small" multiline rows={3} fullWidth sx={{  width: '250px', resize: 'none', fontSize: '12px' }} />
+  </Grid>
+
+  <Grid item md={2}>
+    <Button
+      size="small"
+      sx={{
+        bgcolor: '#fff3cd',
+        fontSize: '12px',
+        textTransform: 'none',
+        color: 'black',
+        border: '1px solid #ccc',
+        '&:hover': { bgcolor: '#e6e6e6' },
+      }}
+    >
+      Load Trades from Books
+    </Button>
+  </Grid>
+
+  <Grid item md={2}>
+    <Button
+      size="small"
+      sx={{
+        bgcolor: '#fff3cd',
+        fontSize: '12px',
+        textTransform: 'none',
+        color: 'black',
+        border: '1px solid #ccc',
+        ml: 1,
+        '&:hover': { bgcolor: '#e6e6e6' },
+      }}
+    >
+      Clear Books
+    </Button>
+  </Grid>
+</Grid>
+
+        {/* Dataset FullName and Scenario FullName */}
+        <Grid container spacing={1} sx={{ mt: 1 }}>
+          <Grid item md={3}>
+            <Typography variant="body2" sx={{ fontSize: '12px' }}>
+              DataSet FullName
+            </Typography>
+            <input className="form-control-sm" defaultValue="Official" sx={{ fontSize: '12px' }} />
+          </Grid>
+          <Grid item md={3}>
+            <Typography variant="body2" sx={{ fontSize: '12px' }}>
+              Scenario FullName
+            </Typography>
+            <input className="form-control-sm" defaultValue="Base" sx={{ fontSize: '12px' }} />
+          </Grid>
+        </Grid>
+      </Paper>
+      </Box>
+
+    </Box>
+    </div>
+    {/* Action Bar */}
+      <Box sx={{ p: 2 }}>
+      {/* Action Buttons */}
+      <Box display="flex" alignItems="center" flexWrap="wrap" mb={1}>
+        <Button
+          size="small"
+          sx={{
+            bgcolor: '#85c9e2',
+            textTransform: 'math-auto', 
+            border: '1px solid #999',
+            color: '#000',
+            fontSize: '12px',
+            px: 1,
+            py: '2px',
+            mr: 1,
+            '&:hover': { bgcolor: '#72b9d4' },
+          }}
+        >
+          Validate Loaded Trades
+        </Button>
+        <Button
+          size="small"
+          sx={{
+            bgcolor: '#85c9e2',
+            textTransform: 'math-auto', 
+            border: '1px solid #999',
+            color: '#000',
+            fontSize: '12px',
+            px: 1,
+            py: '2px',
+            mr: 1,
+            '&:hover': { bgcolor: '#72b9d4' },
+          }}
+        >
+          Add Selected Trades to Margin Calc
+        </Button>
+        <Button
+          size="small"
+          sx={{
+            bgcolor: '#85c9e2',
+            textTransform: 'math-auto', 
+            border: '1px solid #999',
+            color: '#000',
+            fontSize: '12px',
+            px: 1,
+            py: '2px',
+            mr: 1,
+            '&:hover': { bgcolor: '#72b9d4' },
+          }}
+        >
+          Clear Trades
+        </Button>
+        <Button
+          size="small"
+          sx={{
+            bgcolor: '#85c9e2',
+            textTransform: 'math-auto', 
+            border: '1px solid #999',
+            color: '#000',
+            fontSize: '12px',
+            px: 1,
+            py: '2px',
+            mr: 1,
+            '&:hover': { bgcolor: '#72b9d4' },
+          }}
+        >
+          Export to Excel
+        </Button>
+        <Typography
+          sx={{
+            bgcolor: '#ffc107',
+            color: '#fff',
+            fontSize: '12px',
+            px: 1,
+            py: '2px',
+            borderRadius: '2px',
+            fontWeight: 'bold',
+          }}
+        >
+          Active Portfolio = Unnamed
+        </Typography>
+      </Box>
+
+      {/* Tab Row */}
+      <Box display="flex" flexWrap="wrap" fontSize="12px" mb={1}>
+        <Box
+          component="span"
+          sx={{
+            px: 1,
+            py: '2px',
+            mr: '4px',
+            bgcolor: '#ffffff',
+            border: '1px solid #ccc',
+            color: 'red',
+            fontWeight: 'bold',
+          }}
+        >
+          Trade Loaded (#0)
+        </Box>
+        <Box
+          component="span"
+          sx={{
+            px: 1,
+            py: '2px',
+            mr: '4px',
+            bgcolor: '#fff3cd',
+            border: '1px solid #ccc',
+            color: '#000',
+          }}
+        >
+          Valid Trades (#0)
+        </Box>
+        <Box
+          component="span"
+          sx={{
+            px: 1,
+            py: '2px',
+            mr: '4px',
+            bgcolor: '#fff3cd',
+            border: '1px solid #ccc',
+            color: '#000',
+          }}
+        >
+          Invalid Trades (#0)
+        </Box>
+        <Box
+          component="span"
+          sx={{
+            px: 1,
+            py: '2px',
+            mr: '4px',
+            bgcolor: '#fff3cd',
+            border: '1px solid #ccc',
+            color: '#000',
+          }}
+        >
+          Trade IDs Not Found (#0)
+        </Box>
+        <Box
+          component="span"
+          sx={{
+            px: 1,
+            py: '2px',
+            mr: '4px',
+            bgcolor: '#fff3cd',
+            border: '1px solid #ccc',
+            color: '#000',
+          }}
+        >
+          Help
+        </Box>
+      </Box>
+
+      {/* Table Section */}
+ <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
+  {/* Scroll container */}
+ <Box
+  sx={{
+    border: '1px solid #999',
+    backgroundColor: 'white',
+    mb: 2,
+  }}
+>
+  {/* Table Header */}
+  <Box
+    sx={{
+      width: '100%',
+      backgroundColor: '#4a6a8a',
+      color: '#fff',
+      fontSize: '13px',
+      fontWeight: 'bold',
+      px: 1,
+      py: '4px',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    Loaded Trades Table
+  </Box>
+
+  {/* Section Body */}
+  <Box sx={{ p: 0 }}>
+    {/* Table Wrapper (scroll container) */}
+    <Box sx={{ overflowX: 'auto' }}>
+      <Box
+        component="table"
+        sx={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          fontSize: '12px',
+          minWidth: '1200px', // ensures horizontal scrolling
+          '& th, & td': {
+            border: '1px solid #7f7f7f',
+            padding: '4px',
+            whiteSpace: 'nowrap',
+          },
+          '& thead': {
+            backgroundColor: '#eaeaea',
+          },
+        }}
+      >
+        <thead>
+            <tr>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px',  whiteSpace: 'nowrap' }}>
+                ProductType-&gt;IssuerName-&gt;TradeID
+              </th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Withhold</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Sector</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Currency</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MaturityDate</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Position Native</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MTM Native</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>CS01 Native</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Trade Cnt.</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Gross Notl. Native</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>InstrumentId</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Crd Crv Sub</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>DocClause</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>ContractualSpread</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Tier</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Ticker</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>LegalEntity</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessGroup</th>
+              <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessType</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+                  <tr key={i}>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.productType} → {r.issuerName} → TRD{i + 1}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.withhold}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.currency}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.maturityDate}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.size}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>1</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.notionalUsd}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.instrumentId}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.subordination}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.docClause}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.issuerName}</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                  </tr>
+                  ))}
+          </tbody>
+        </Box>
+        </Box>
+        </Box>
+        </Box>
+      </Paper>
+    </Box>
+    </div>
+    </div>
+  );
+};
+
+export default TradeEntryFormMUI;
