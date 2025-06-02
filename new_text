@@ -206,23 +206,23 @@ const TradeEntryFormMUI = () => {
                 &nbsp;
               </Typography>
               <Grid container spacing={1} sx={{ mt: 1 }}>
-                <Grid item md={2}>
-                  <Typography variant="caption">B/S</Typography>
-                  <Select size="small" fullWidth defaultValue="Buy">
-                    <MenuItem value="Buy">Buy</MenuItem>
-                  </Select>
+                <Grid item sm={2}>
+                  <label className="mb-1">B/S</label>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option>Buy</option>
+                  </select>
                 </Grid>
-                <Grid item md={2}>
-                  <Typography variant="caption">Size (MM)</Typography>
-                  <TextField size="small" fullWidth />
-                </Grid>
-                <Grid item md={3}>
-                  <Typography variant="caption">Notional (NC)</Typography>
-                  <TextField size="small" fullWidth />
+                <Grid item sm={2}>
+                  <label className="mb-1">Size (MM)</label>
+                  <input className="form-control-sm" style={{ width: '100%' }} />
                 </Grid>
                 <Grid item md={3}>
-                  <Typography variant="caption">Notional ($)</Typography>
-                  <TextField size="small" fullWidth />
+                  <label className="mb-1">Notional (NC)</label>
+                  <input className="form-control-sm" style={{ width: '100%' }} />
+                </Grid>
+                <Grid item md={3}>
+                  <label className="mb-1">Notional ($)</label>
+                  <input className="form-control-sm" style={{ width: '100%' }} />
                 </Grid>
               </Grid>
             </Box>
@@ -254,56 +254,44 @@ const TradeEntryFormMUI = () => {
               </Typography>
               <Grid container spacing={1} sx={{ mt: 1 }}>
                 <Grid item md={2}>
-                  <Typography variant="caption">Actual Funding Id</Typography>
-                  <Select size="small" fullWidth defaultValue="EUROIS">
-                    <MenuItem value="EUROIS">EUROIS</MenuItem>
-                  </Select>
+                  <label className="mb-1">Actual Funding Id</label>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option>EUROIS</option>
+                  </select>
                 </Grid>
                 <Grid item md={2}>
-                  <Typography variant="caption">Payment Freq.</Typography>
-                  <Select size="small" fullWidth defaultValue="Quarterly">
-                    <MenuItem value="Quarterly">Quarterly</MenuItem>
-                  </Select>
+                  <label className="mb-1">Payment Freq.</label>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option>Quarterly</option>
+                  </select>
                 </Grid>
                 <Grid item md={3}>
-                  <Typography variant="caption">Standard Funding Id</Typography>
-                  <TextField size="small" defaultValue="EUROI" fullWidth />
+                  <label className="mb-1">Standard Funding Id</label>
+                  <input
+                    className="form-control-sm"
+                    defaultValue="EUROI"
+                    style={{ width: '100%' }}
+                  />
                 </Grid>
-                <Grid
-                  item
-                  md={3}
-                  display="flex"
-                  justifyContent="flex-end"
-                  alignItems="flex-end"
-                >
+                <Grid item md={3} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                   <Button
                     size="small"
-                    variant="contained"
+                    className="bg-secondary me-2"
                     onClick={handleAdd}
-                    sx={{
-                      color: 'black',
-                      bgcolor: '#e0e0e0',
-                      boxShadow: 'none',
-                      mr: 1,
-                      textTransform: 'none',
-                    }}
+                    sx={{ color: 'black', textTransform: 'none' }}
                   >
                     Add
                   </Button>
                   <Button
                     size="small"
-                    variant="contained"
-                    sx={{
-                      color: 'black',
-                      bgcolor: '#e0e0e0',
-                      boxShadow: 'none',
-                      textTransform: 'none',
-                    }}
+                    className="bg-secondary"
+                    sx={{ color: 'black', textTransform: 'none' }}
                   >
                     Reset
                   </Button>
                 </Grid>
               </Grid>
+              
             </Box>
             </Box>
           </Box>
@@ -311,184 +299,146 @@ const TradeEntryFormMUI = () => {
 
         {activeTab === 'Load Batch Trades' && (
           <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
-            <Typography variant="body2">Load Batch Trades Section</Typography>
-            <Box sx={{ width: '800px', mt: 2 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 2,
-                  bgcolor: '#f9f9f9',
-                  border: '1px solid #ddd',
-                  width: '800px',
-                  mx: 'auto',
+            <Box fontSize="12px">
+                    <Paper elevation={0} sx={{ width: '800px' }}>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+                        Clearing House: <span style={{ color: '#fff', backgroundColor: 'rgb(255 191 0)' }}>ICE Clear Credit LLC</span>
+                      </Typography>
+              
+                      {/* Buttons */}
+                      <Box sx={{ mt: 1 }}>
+                        <Button
+                          size="small"
+                          sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
+                        >
+                          Load Trades from File
+                        </Button>
+                        <Button
+                          size="small"
+                          sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
+                        >
+                          Load TradeID from File
+                        </Button>
+                        
+                      </Box>
+              
+                      {/* Trade IDs and Book Names */}
+                      {/* Trade IDs Section */}
+              <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+                <Grid item md={4}>
+                  <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
+                    Trade IDs
+                  </Typography>
+                  <textarea
+                rows="3"
+                style={{
+                  width: '250px',
+                  fontSize: '12px',
+                  resize: 'none',
                 }}
-              >
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                  Clearing House:{' '}
-                  <Box
-                    component="span"
-                    sx={{
-                      color: '#fff',
-                      bgcolor: 'rgb(255 191 0)',
-                      px: 0.5,
-                      fontWeight: 600,
-                    }}
-                  >
-                    ICE Clear Credit LLC
-                  </Box>
-                </Typography>
-                {/* Buttons */}
-                <Box sx={{ mt: 1 }}>
+              />
+              
+                </Grid>
+                <Grid item md={3}>
                   <Button
                     size="small"
+                    fullWidth
                     sx={{
                       bgcolor: '#fff3cd',
                       fontSize: '12px',
                       textTransform: 'none',
                       color: 'black',
                       border: '1px solid #ccc',
-                      mr: 1,
-                      '&:hover': { bgcolor: '#e6e6e6' },
+                      '&:hover': { bgcolor: '#e6e6e6' }
                     }}
                   >
-                    Load Trades from File
+                    Load TradeID List (UI)
                   </Button>
+                </Grid>
+                <Grid item md={2}>
                   <Button
                     size="small"
+                    fullWidth
                     sx={{
                       bgcolor: '#fff3cd',
                       fontSize: '12px',
                       textTransform: 'none',
                       color: 'black',
                       border: '1px solid #ccc',
-                      mr: 1,
+                      '&:hover': { bgcolor: '#e6e6e6' }
+                    }}
+                  >
+                    Clear TradeIDs
+                  </Button>
+                </Grid>
+              </Grid>
+              
+              {/* Book Names Section */}
+              <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+                <Grid item md={4}>
+                  <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
+                    Book Names - comma separated
+                  </Typography>
+                  <textarea
+                rows="3"
+                style={{
+                  width: '250px',
+                  fontSize: '12px',
+                  resize: 'none',
+                }}
+              />
+                </Grid>
+                <Grid item md={3} sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Button
+                    size="small"
+                    fullWidth
+                    sx={{
+                      bgcolor: '#fff3cd',
+                      fontSize: '12px',
+                      textTransform: 'none',
+                      color: 'black',
+                      border: '1px solid #ccc',
                       '&:hover': { bgcolor: '#e6e6e6' },
                     }}
                   >
-                    Load TradeID from File
+                    Load Trades from Books
                   </Button>
-                </Box>
-
-                {/* Trade IDs Section */}
-                <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
-                  <Grid item md={4}>
-                    <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
-                      Trade IDs
-                    </Typography>
-                    <TextField
-                      multiline
-                      rows={3}
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        width: '250px',
-                        fontSize: '12px',
-                        '& .MuiInputBase-root': { fontSize: '12px' },
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <Button
-                      size="small"
-                      fullWidth
-                      sx={{
-                        bgcolor: '#fff3cd',
-                        fontSize: '12px',
-                        textTransform: 'none',
-                        color: 'black',
-                        border: '1px solid #ccc',
-                        '&:hover': { bgcolor: '#e6e6e6' },
-                      }}
-                    >
-                      Load TradeID List (UI)
-                    </Button>
-                  </Grid>
-                  <Grid item md={2}>
-                    <Button
-                      size="small"
-                      fullWidth
-                      sx={{
-                        bgcolor: '#fff3cd',
-                        fontSize: '12px',
-                        textTransform: 'none',
-                        color: 'black',
-                        border: '1px solid #ccc',
-                        '&:hover': { bgcolor: '#e6e6e6' },
-                      }}
-                    >
-                      Clear TradeIDs
-                    </Button>
-                  </Grid>
                 </Grid>
-
-                {/* Book Names Section */}
-                <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
-                  <Grid item md={4}>
-                    <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
-                      Book Names - comma separated
-                    </Typography>
-                    <TextField
-                      multiline
-                      rows={3}
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        width: '250px',
-                        fontSize: '12px',
-                        '& .MuiInputBase-root': { fontSize: '12px' },
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={3} display="flex" alignItems="center">
-                    <Button
-                      size="small"
-                      fullWidth
-                      sx={{
-                        bgcolor: '#fff3cd',
-                        fontSize: '12px',
-                        textTransform: 'none',
-                        color: 'black',
-                        border: '1px solid #ccc',
-                        '&:hover': { bgcolor: '#e6e6e6' },
-                      }}
-                    >
-                      Load Trades from Books
-                    </Button>
-                  </Grid>
-                  <Grid item md={2} display="flex" alignItems="center">
-                    <Button
-                      size="small"
-                      fullWidth
-                      sx={{
-                        bgcolor: '#fff3cd',
-                        fontSize: '12px',
-                        textTransform: 'none',
-                        color: 'black',
-                        border: '1px solid #ccc',
-                        '&:hover': { bgcolor: '#e6e6e6' },
-                      }}
-                    >
-                      Clear Books
-                    </Button>
-                  </Grid>
+                <Grid item md={2} sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Button
+                    size="small"
+                    fullWidth
+                    sx={{
+                      bgcolor: '#fff3cd',
+                      fontSize: '12px',
+                      textTransform: 'none',
+                      color: 'black',
+                      border: '1px solid #ccc',
+                      '&:hover': { bgcolor: '#e6e6e6' },
+                    }}
+                  >
+                    Clear Books
+                  </Button>
                 </Grid>
-
-                {/* Dataset & Scenario */}
-                <Grid container spacing={1} sx={{ mt: 1 }}>
-                  <Grid item md={3}>
-                    <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                      DataSet FullName
-                    </Typography>
-                    <input className="form-control-sm" defaultValue="Official" sx={{ fontSize: '12px' }} />
-                  </Grid>
-                  <Grid item md={3}>
-                    <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                      Scenario FullName
-                    </Typography>
-                    <input className="form-control-sm" defaultValue="Base" sx={{ fontSize: '12px' }} />
-                  </Grid>
-                </Grid>
-              </Paper>
+              </Grid>
+              
+              
+                      {/* Dataset FullName and Scenario FullName */}
+                      <Grid container spacing={1} sx={{ mt: 1 }}>
+                        <Grid item md={3}>
+                          <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                            DataSet FullName
+                          </Typography>
+                          <input className="form-control-sm" defaultValue="Official" sx={{ fontSize: '12px' }} />
+                        </Grid>
+                        <Grid item md={3}>
+                          <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                            Scenario FullName
+                          </Typography>
+                          <input className="form-control-sm" defaultValue="Base" sx={{ fontSize: '12px' }} />
+                        </Grid>
+                      </Grid>
+                    </Paper>
             </Box>
           </Box>
         )}
