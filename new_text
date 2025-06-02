@@ -12,6 +12,7 @@ import {
 
 const TradeEntryFormMUI = () => {
   const [rows, setRows] = useState([]);
+  const [activeTab, setActiveTab] = useState('Trade Entry');
 
   // Dummy handler for demo; in practice, you'll collect form values using state!
   const handleAdd = () => {
@@ -44,44 +45,28 @@ const TradeEntryFormMUI = () => {
       <Box width="100%" maxWidth="1200px">
         {/* Top Tab Header */}
         <Box display="flex" borderBottom="1px solid #dee2e6" fontSize="13px">
-          <Box
-            px={3}
-            py={1}
-            border="1px solid #dee2e6"
-            borderBottom="none"
-            bgcolor="#6c757d"
-            color="white"
-            sx={{ cursor: 'pointer' }}
-          >
-            Load Batch Trades
-          </Box>
-          <Box
-            px={3}
-            py={1}
-            border="1px solid #dee2e6"
-            borderBottom="none"
-            bgcolor="white"
-            sx={{ cursor: 'pointer' }}
-          >
-            Trade Entry
-          </Box>
-          <Box
-            px={3}
-            py={1}
-            border="1px solid #dee2e6"
-            borderBottom="none"
-            bgcolor="#6c757d"
-            color="white"
-            sx={{ cursor: 'pointer' }}
-          >
-            Manage Portfolio
-          </Box>
+          {['Load Batch Trades', 'Trade Entry', 'Manage Portfolio'].map((tab) => (
+            <Box
+              key={tab}
+              px={3}
+              py={1}
+              border="1px solid #dee2e6"
+              borderBottom="none"
+              bgcolor={activeTab === tab ? 'white' : '#6c757d'}
+              color={activeTab === tab ? 'black' : 'white'}
+              sx={{ cursor: 'pointer' }}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </Box>
+          ))}
         </Box>
 
-        {/* --- Form Section --- */}
-        <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
-          <Box fontSize="12px">
-            {/* Key Fields */}
+        {/* Form Section */}
+        {activeTab === 'Trade Entry' && (
+          <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
+            <Box fontSize="12px">
+              {/* Key Fields */}
             <Box
               sx={{
                 position: 'relative',
@@ -109,23 +94,23 @@ const TradeEntryFormMUI = () => {
               <Grid container spacing={1}>
                 <Grid item md={2}>
                   <Typography variant="caption">Product Type</Typography>
-                  <Select size="small" defaultValue="CD Swap" fullWidth>
-                    <MenuItem value="CD Swap">CD Swap</MenuItem>
-                  </Select>
+                  <select className="form-select-sm" defaultValue="CD Swap" style={{ width: '100%' }}>
+                    <option>CD Swap</option>
+                  </select>
                 </Grid>
                 <Grid item md={2}>
                   <Typography variant="caption">Issuer Name</Typography>
-                  <Select size="small" fullWidth>
-                    <MenuItem value="Issuer">Issuer</MenuItem>
-                  </Select>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    {/* Add options dynamically */}
+                  </select>
                 </Grid>
                 <Grid item md={2}>
                   <Typography variant="caption">Instrument ID</Typography>
-                  <TextField size="small" defaultValue="007GB6" fullWidth />
+                  <input className="form-control-sm" defaultValue="007GB6" style={{ width: '100%' }} />
                 </Grid>
                 <Grid item md={1}>
                   <Typography variant="caption">Withhold</Typography>
-                  <TextField size="small" fullWidth />
+                  <input className="form-control-sm" style={{ width: '100%' }} />
                 </Grid>
               </Grid>
             </Box>
@@ -156,42 +141,42 @@ const TradeEntryFormMUI = () => {
               <Grid container spacing={1} sx={{ mt: 1 }}>
                 <Grid item md={2}>
                   <Typography variant="caption">Subordination</Typography>
-                  <Select size="small" fullWidth defaultValue="Sr Unsecured">
-                    <MenuItem value="Sr Unsecured">Sr Unsecured</MenuItem>
-                  </Select>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option>Sr Unsecured</option>
+                  </select>
                 </Grid>
                 <Grid item md={2}>
                   <Typography variant="caption">Doc Clause</Typography>
-                  <Select size="small" fullWidth defaultValue="CR14">
-                    <MenuItem value="CR14">CR14</MenuItem>
-                  </Select>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option>CR14</option>
+                  </select>
                 </Grid>
                 <Grid item md={2}>
                   <Typography variant="caption">Currency</Typography>
-                  <Select size="small" fullWidth defaultValue="EUR">
-                    <MenuItem value="EUR">EUR</MenuItem>
-                  </Select>
+                  <select className="form-select-sm" style={{ width: '100%' }}>
+                    <option value="EUR">EUR</option>
+                  </select>
                 </Grid>
                 <Grid item md={1}>
                   <Typography variant="caption">Coupon</Typography>
-                  <TextField size="small" defaultValue="100" fullWidth />
+                  <input className="form-control-sm" defaultValue="100" style={{ width: '100%' }} />
                 </Grid>
                 <Grid item md={1}>
                   <Typography variant="caption">Tenor</Typography>
-                  <TextField size="small" fullWidth />
+                  <input className="form-control-sm" style={{ width: '100%' }} />
                 </Grid>
                 <Grid item md={3}>
                   <Typography variant="caption">Maturity</Typography>
                   <Box display="flex" gap={1}>
-                    <TextField
+                    <input
                       type="date"
-                      size="small"
+                      className="form-control-sm"
                       defaultValue="2030-06-20"
-                      fullWidth
+                      style={{ flex: 1 }}
                     />
-                    <Select size="small" defaultValue="5Y" sx={{ width: '80px' }}>
-                      <MenuItem value="5Y">5Y</MenuItem>
-                    </Select>
+                    <select className="form-select-sm" style={{ width: '80px' }}>
+                      <option>5Y</option>
+                    </select>
                   </Box>
                 </Grid>
               </Grid>
@@ -320,8 +305,13 @@ const TradeEntryFormMUI = () => {
                 </Grid>
               </Grid>
             </Box>
+            </Box>
+          </Box>
+        )}
 
-            {/* Main Section: Clearing House & Book/ID Inputs */}
+        {activeTab === 'Load Batch Trades' && (
+          <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
+            <Typography variant="body2">Load Batch Trades Section</Typography>
             <Box sx={{ width: '800px', mt: 2 }}>
               <Paper
                 elevation={0}
@@ -489,29 +479,26 @@ const TradeEntryFormMUI = () => {
                     <Typography variant="body2" sx={{ fontSize: '12px' }}>
                       DataSet FullName
                     </Typography>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      defaultValue="Official"
-                      sx={{ fontSize: '12px', width: '100%' }}
-                    />
+                    <input className="form-control-sm" defaultValue="Official" sx={{ fontSize: '12px' }} />
                   </Grid>
                   <Grid item md={3}>
                     <Typography variant="body2" sx={{ fontSize: '12px' }}>
                       Scenario FullName
                     </Typography>
-                    <TextField
-                      size="small"
-                      variant="outlined"
-                      defaultValue="Base"
-                      sx={{ fontSize: '12px', width: '100%' }}
-                    />
+                    <input className="form-control-sm" defaultValue="Base" sx={{ fontSize: '12px' }} />
                   </Grid>
                 </Grid>
               </Paper>
             </Box>
           </Box>
-        </Box>
+        )}
+
+        {activeTab === 'Manage Portfolio' && (
+          <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
+            <Typography variant="body2">Manage Portfolio Section</Typography>
+            {/* Put your Manage Portfolio UI here */}
+          </Box>
+        )}
 
         {/* --- Action Bar --- */}
         <Box p={2}>
