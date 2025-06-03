@@ -41,7 +41,7 @@ const TradeEntryFormMUI = () => {
   };
 
   return (
-    <Box display="flex" justifyContent="center" mt={3} fontFamily="Roboto, sans-serif">
+    <Box mt={3} fontFamily="Roboto, sans-serif">
       <Box width="100%" maxWidth="1200px">
         {/* Top Tab Header */}
         <Box display="flex" borderBottom="1px solid #dee2e6" fontSize="13px">
@@ -67,232 +67,481 @@ const TradeEntryFormMUI = () => {
           <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
             <Box fontSize="12px">
               {/* Key Fields */}
-            <Box
-              sx={{
-                position: 'relative',
-                border: '1px solid #ccc',
-                borderRadius: 1,
-                p: 1,
-                mt: 1,
-                width: '800px',
-                bgcolor: 'white',
-              }}
-            >
-              <Typography
+              <Box
                 sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  left: '10px',
+                  position: 'relative',
+                  border: '1px solid #ccc',
+                  borderRadius: 1,
+                  p: 1,
+                  mt: 1,
+                  width: '800px',
                   bgcolor: 'white',
-                  px: 1,
-                  fontWeight: 600,
-                  fontSize: '13px',
                 }}
               >
-                Key Fields
-              </Typography>
-              <Grid container spacing={1}>
-                <Grid item md={2}>
-                  <Typography variant="caption">Product Type</Typography>
-                  <select className="form-select-sm" defaultValue="CD Swap" style={{ width: '100%' }}>
-                    <option>CD Swap</option>
-                  </select>
-                </Grid>
-                <Grid item md={2}>
-                  <Typography variant="caption">Issuer Name</Typography>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    {/* Add options dynamically */}
-                  </select>
-                </Grid>
-                <Grid item md={2}>
-                  <Typography variant="caption">Instrument ID</Typography>
-                  <input className="form-control-sm" defaultValue="007GB6" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item md={1}>
-                  <Typography variant="caption">Withhold</Typography>
-                  <input className="form-control-sm" style={{ width: '100%' }} />
-                </Grid>
-              </Grid>
-            </Box>
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    left: '10px',
+                    bgcolor: 'white',
+                    px: 1,
+                    fontWeight: 600,
+                    fontSize: '13px',
+                  }}
+                >
+                  Key Fields
+                </Typography>
+                <Grid container spacing={1}>
+                  <Grid item md={2}>
+                    <Typography variant="caption">Product Type</Typography>
+                    <Select
+                      defaultValue="CD Swap"
+                      fullWidth
+                      sx={{
+                        height: '32px', // Match input height
+                        fontSize: '0.75rem', // Match input font size
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px', // Match input padding
+                        },
+                      }}
+                    >
+                      <MenuItem value="CD Swap">CD Swap</MenuItem>
+                    </Select>
+                  </Grid>
 
-            {/* Subordination Fields */}
-            <Box
-              sx={{
-                position: 'relative',
-                border: '1px solid #ccc',
-                borderRadius: 1,
-                p: 1,
-                mt: 2,
-                width: '800px',
-                bgcolor: 'white',
-              }}
-            >
-              <Typography
-                sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  left: '10px',
-                  bgcolor: 'white',
-                  px: 1,
-                }}
-              >
-                &nbsp;
-              </Typography>
-              <Grid container spacing={1} sx={{ mt: 1 }}>
-                <Grid item md={2}>
-                  <Typography variant="caption">Subordination</Typography>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option>Sr Unsecured</option>
-                  </select>
-                </Grid>
-                <Grid item md={2}>
-                  <Typography variant="caption">Doc Clause</Typography>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option>CR14</option>
-                  </select>
-                </Grid>
-                <Grid item md={2}>
-                  <Typography variant="caption">Currency</Typography>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option value="EUR">EUR</option>
-                  </select>
-                </Grid>
-                <Grid item md={1}>
-                  <Typography variant="caption">Coupon</Typography>
-                  <input className="form-control-sm" defaultValue="100" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item md={1}>
-                  <Typography variant="caption">Tenor</Typography>
-                  <input className="form-control-sm" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item md={3}>
-                  <Typography variant="caption">Maturity</Typography>
-                  <Box display="flex" gap={1}>
-                    <input
-                      type="date"
-                      className="form-control-sm"
-                      defaultValue="2030-06-20"
-                      style={{ flex: 1 }}
+                  <Grid item md={2}>
+                    <Typography variant="caption">Issuer Name</Typography>
+                    <Select
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                    >
+                      <MenuItem value="Issuer">Issuer</MenuItem>
+                    </Select>
+                  </Grid>
+
+                  <Grid item md={2}>
+                    <Typography variant="caption">Instrument ID</Typography>
+                    <Box
+                      component="input"
+                      defaultValue="007GB6"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
                     />
-                    <select className="form-select-sm" style={{ width: '80px' }}>
-                      <option>5Y</option>
-                    </select>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
+                  </Grid>
 
-            {/* B/S Fields */}
-            <Box
-              sx={{
-                position: 'relative',
-                border: '1px solid #ccc',
-                borderRadius: 1,
-                p: 1,
-                mt: 2,
-                width: '800px',
-                bgcolor: 'white',
-              }}
-            >
-              <Typography
+                  <Grid item md={1}>
+                    <Typography variant="caption">Withhold</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+
+              </Box>
+
+              {/* Subordination Fields */}
+              <Box
                 sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  left: '10px',
+                  position: 'relative',
+                  border: '1px solid #ccc',
+                  borderRadius: 1,
+                  p: 1,
+                  mt: 2,
+                  width: '800px',
                   bgcolor: 'white',
-                  px: 1,
                 }}
               >
-                &nbsp;
-              </Typography>
-              <Grid container spacing={1} sx={{ mt: 1 }}>
-                <Grid item sm={2}>
-                  <label className="mb-1">B/S</label>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option>Buy</option>
-                  </select>
-                </Grid>
-                <Grid item sm={2}>
-                  <label className="mb-1">Size (MM)</label>
-                  <input className="form-control-sm" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item md={3}>
-                  <label className="mb-1">Notional (NC)</label>
-                  <input className="form-control-sm" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item md={3}>
-                  <label className="mb-1">Notional ($)</label>
-                  <input className="form-control-sm" style={{ width: '100%' }} />
-                </Grid>
-              </Grid>
-            </Box>
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    left: '10px',
+                    bgcolor: 'white',
+                    px: 1,
+                  }}
+                >
+                  &nbsp;
+                </Typography>
+                <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid item md={2}>
+                    <Typography variant="caption">Subordination</Typography>
+                    <Select
+                      defaultValue="Sr Unsecured"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                    >
+                      <MenuItem value="Sr Unsecured">Sr Unsecured</MenuItem>
+                    </Select>
+                  </Grid>
 
-            {/* CSA Fields */}
-            <Box
-              sx={{
-                position: 'relative',
-                border: '1px solid #ccc',
-                borderRadius: 1,
-                p: 1,
-                mt: 2,
-                width: '800px',
-                bgcolor: 'white',
-              }}
-            >
-              <Typography
+                  <Grid item md={2}>
+                    <Typography variant="caption">Doc Clause</Typography>
+                    <Select
+                      defaultValue="CR14"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                    >
+                      <MenuItem value="CR14">CR14</MenuItem>
+                    </Select>
+                  </Grid>
+
+                  <Grid item md={2}>
+                    <Typography variant="caption">Currency</Typography>
+                    <Select
+                      defaultValue="EUR"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                    >
+                      <MenuItem value="EUR">EUR</MenuItem>
+                    </Select>
+                  </Grid>
+
+                  <Grid item md={1}>
+                    <Typography variant="caption">Coupon</Typography>
+                    <Box
+                      component="input"
+                      defaultValue="100"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+
+                  <Grid item md={1}>
+                    <Typography variant="caption">Tenor</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+
+                  <Grid item md={3}>
+                    <Typography variant="caption">Maturity</Typography>
+                    <Box display="flex" gap={1}>
+                      <Box
+                        component="input"
+                        type="date"
+                        defaultValue="2030-06-20"
+                        fullWidth
+                        sx={{
+                          width: '100%',
+                          fontSize: '0.75rem',
+                          padding: '6px 8px',
+                          border: '1px solid #c4c4c4',
+                          borderRadius: '4px',
+                          outline: 'none',
+                          '&:focus': {
+                            borderColor: '#1976d2',
+                            boxShadow: '0 0 0 1px #1976d2',
+                          },
+                        }}
+                      />
+                      <Select
+                        defaultValue="5Y"
+                        sx={{
+                          width: '80px',
+                          height: '32px',
+                          fontSize: '0.75rem',
+                          '& .MuiSelect-select': {
+                            padding: '6px 8px',
+                          },
+                        }}
+                      >
+                        <MenuItem value="5Y">5Y</MenuItem>
+                      </Select>
+                    </Box>
+                  </Grid>
+                </Grid>
+
+              </Box>
+
+              {/* B/S Fields */}
+              <Box
                 sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  left: '10px',
+                  position: 'relative',
+                  border: '1px solid #ccc',
+                  borderRadius: 1,
+                  p: 1,
+                  mt: 2,
+                  width: '800px',
                   bgcolor: 'white',
-                  px: 1,
-                  fontWeight: 600,
-                  fontSize: '13px',
                 }}
               >
-                CSA Fields
-              </Typography>
-              <Grid container spacing={1} sx={{ mt: 1 }}>
-                <Grid item md={2}>
-                  <label className="mb-1">Actual Funding Id</label>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option>EUROIS</option>
-                  </select>
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    left: '10px',
+                    bgcolor: 'white',
+                    px: 1,
+                  }}
+                >
+                  &nbsp;
+                </Typography>
+                <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid item md={2}>
+                    <Typography variant="caption">B/S</Typography>
+                    <Select
+                      defaultValue="Buy"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': { padding: '6px 8px' },
+                      }}
+                    >
+                      <MenuItem value="Buy">Buy</MenuItem>
+                    </Select>
+                  </Grid>
+                  <Grid item md={2}>
+                    <Typography variant="caption">Size (MM)</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item md={3}>
+                    <Typography variant="caption">Notional (NC)</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item md={3}>
+                    <Typography variant="caption">Notional ($)</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item md={2}>
-                  <label className="mb-1">Payment Freq.</label>
-                  <select className="form-select-sm" style={{ width: '100%' }}>
-                    <option>Quarterly</option>
-                  </select>
-                </Grid>
-                <Grid item md={3}>
-                  <label className="mb-1">Standard Funding Id</label>
-                  <input
-                    className="form-control-sm"
-                    defaultValue="EUROI"
-                    style={{ width: '100%' }}
-                  />
-                </Grid>
-                <Grid item md={3} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                  <Button
-                    size="small"
-                    className="bg-secondary me-2"
-                    onClick={handleAdd}
-                    sx={{ color: 'black', textTransform: 'none' }}
+              </Box>
+
+              {/* CSA Fields */}
+              <Box
+                sx={{
+                  position: 'relative',
+                  border: '1px solid #ccc',
+                  borderRadius: 1,
+                  p: 1,
+                  mt: 2,
+                  width: '800px',
+                  bgcolor: 'white',
+                }}
+              >
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    left: '10px',
+                    bgcolor: 'white',
+                    px: 1,
+                    fontWeight: 600,
+                    fontSize: '13px',
+                  }}
+                >
+                  CSA Fields
+                </Typography>
+                <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid item md={2}>
+                    <Typography variant="caption">Actual Funding Id</Typography>
+                    <Select
+                      defaultValue="EUROIS"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': { padding: '6px 8px' },
+                      }}
+                    >
+                      <MenuItem value="EUROIS">EUROIS</MenuItem>
+                    </Select>
+                  </Grid>
+                  <Grid item md={2}>
+                    <Typography variant="caption">Payment Freq.</Typography>
+                    <Select
+                      defaultValue="Quarterly"
+                      fullWidth
+                      sx={{
+                        height: '32px',
+                        fontSize: '0.75rem',
+                        '& .MuiSelect-select': { padding: '6px 8px' },
+                      }}
+                    >
+                      <MenuItem value="Quarterly">Quarterly</MenuItem>
+                    </Select>
+                  </Grid>
+                  <Grid item md={3}>
+                    <Typography variant="caption">Standard Funding Id</Typography>
+                    <Box
+                      component="input"
+                      type="text"
+                      defaultValue="EUROI"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    md={3}
+                    display="flex"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
                   >
-                    Add
-                  </Button>
-                  <Button
-                    size="small"
-                    className="bg-secondary"
-                    sx={{ color: 'black', textTransform: 'none' }}
-                  >
-                    Reset
-                  </Button>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      onClick={handleAdd}
+                      sx={{
+                        color: 'black',
+                        bgcolor: '#e0e0e0',
+                        boxShadow: 'none',
+                        mr: 1,
+                        textTransform: 'none',
+                      }}
+                    >
+                      Add
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      sx={{
+                        color: 'black',
+                        bgcolor: '#e0e0e0',
+                        boxShadow: 'none',
+                        textTransform: 'none',
+                      }}
+                    >
+                      Reset
+                    </Button>
+                  </Grid>
                 </Grid>
-              </Grid>
-              
-            </Box>
+              </Box>
+
             </Box>
           </Box>
         )}
@@ -300,145 +549,212 @@ const TradeEntryFormMUI = () => {
         {activeTab === 'Load Batch Trades' && (
           <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
             <Box fontSize="12px">
-                    <Paper elevation={0} sx={{ width: '800px' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                        Clearing House: <span style={{ color: '#fff', backgroundColor: 'rgb(255 191 0)' }}>ICE Clear Credit LLC</span>
-                      </Typography>
-              
-                      {/* Buttons */}
-                      <Box sx={{ mt: 1 }}>
-                        <Button
-                          size="small"
-                          sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
-                        >
-                          Load Trades from File
-                        </Button>
-                        <Button
-                          size="small"
-                          sx={{ bgcolor: '#fff3cd', fontSize: '12px', textTransform: 'math-auto', color: 'black', border: '1px solid #ccc', mr: 1, '&:hover': { bgcolor: '#e6e6e6' } }}
-                        >
-                          Load TradeID from File
-                        </Button>
-                        
-                      </Box>
-              
-                      {/* Trade IDs and Book Names */}
-                      {/* Trade IDs Section */}
-              <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
-                <Grid item md={4}>
-                  <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
-                    Trade IDs
-                  </Typography>
-                  <textarea
-                rows="3"
-                style={{
-                  width: '250px',
-                  fontSize: '12px',
-                  resize: 'none',
-                }}
-              />
-              
-                </Grid>
-                <Grid item md={3}>
+              <Paper elevation={0} sx={{ width: '800px' }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+                  Clearing House: <span style={{ color: '#fff', backgroundColor: 'rgb(255 191 0)' }}>ICE Clear Credit LLC</span>
+                </Typography>
+
+                {/* Buttons */}
+                <Box sx={{ mt: 1 }}>
                   <Button
                     size="small"
-                    fullWidth
                     sx={{
                       bgcolor: '#fff3cd',
                       fontSize: '12px',
-                      textTransform: 'none',
+                      textTransform: 'none', // fixed!
                       color: 'black',
                       border: '1px solid #ccc',
-                      '&:hover': { bgcolor: '#e6e6e6' }
-                    }}
-                  >
-                    Load TradeID List (UI)
-                  </Button>
-                </Grid>
-                <Grid item md={2}>
-                  <Button
-                    size="small"
-                    fullWidth
-                    sx={{
-                      bgcolor: '#fff3cd',
-                      fontSize: '12px',
-                      textTransform: 'none',
-                      color: 'black',
-                      border: '1px solid #ccc',
-                      '&:hover': { bgcolor: '#e6e6e6' }
-                    }}
-                  >
-                    Clear TradeIDs
-                  </Button>
-                </Grid>
-              </Grid>
-              
-              {/* Book Names Section */}
-              <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
-                <Grid item md={4}>
-                  <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
-                    Book Names - comma separated
-                  </Typography>
-                  <textarea
-                rows="3"
-                style={{
-                  width: '250px',
-                  fontSize: '12px',
-                  resize: 'none',
-                }}
-              />
-                </Grid>
-                <Grid item md={3} sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Button
-                    size="small"
-                    fullWidth
-                    sx={{
-                      bgcolor: '#fff3cd',
-                      fontSize: '12px',
-                      textTransform: 'none',
-                      color: 'black',
-                      border: '1px solid #ccc',
+                      mr: 1,
                       '&:hover': { bgcolor: '#e6e6e6' },
                     }}
                   >
-                    Load Trades from Books
+                    Load Trades from File
                   </Button>
-                </Grid>
-                <Grid item md={2} sx={{ display: 'flex', alignItems: 'center' }}>
                   <Button
                     size="small"
-                    fullWidth
                     sx={{
                       bgcolor: '#fff3cd',
                       fontSize: '12px',
-                      textTransform: 'none',
+                      textTransform: 'none', // fixed!
                       color: 'black',
                       border: '1px solid #ccc',
+                      mr: 1,
                       '&:hover': { bgcolor: '#e6e6e6' },
                     }}
                   >
-                    Clear Books
+                    Load TradeID from File
                   </Button>
+                </Box>
+
+                {/* Trade IDs Section */}
+                <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+                  <Grid item md={4}>
+                    <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
+                      Trade IDs
+                    </Typography>
+                    <Box
+                      component="textarea"
+                      rows="3"
+                      sx={{
+                        width: '250px',
+                        fontSize: '0.75rem', // 12px
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        resize: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item md={3}>
+                    <Button
+                      size="small"
+                      fullWidth
+                      sx={{
+                        bgcolor: '#fff3cd',
+                        fontSize: '12px',
+                        textTransform: 'none',
+                        color: 'black',
+                        border: '1px solid #ccc',
+                        '&:hover': { bgcolor: '#e6e6e6' },
+                      }}
+                    >
+                      Load TradeID List (UI)
+                    </Button>
+                  </Grid>
+                  <Grid item md={2}>
+                    <Button
+                      size="small"
+                      fullWidth
+                      sx={{
+                        bgcolor: '#fff3cd',
+                        fontSize: '12px',
+                        textTransform: 'none',
+                        color: 'black',
+                        border: '1px solid #ccc',
+                        '&:hover': { bgcolor: '#e6e6e6' },
+                      }}
+                    >
+                      Clear TradeIDs
+                    </Button>
+                  </Grid>
                 </Grid>
-              </Grid>
-              
-              
-                      {/* Dataset FullName and Scenario FullName */}
-                      <Grid container spacing={1} sx={{ mt: 1 }}>
-                        <Grid item md={3}>
-                          <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                            DataSet FullName
-                          </Typography>
-                          <input className="form-control-sm" defaultValue="Official" sx={{ fontSize: '12px' }} />
-                        </Grid>
-                        <Grid item md={3}>
-                          <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                            Scenario FullName
-                          </Typography>
-                          <input className="form-control-sm" defaultValue="Base" sx={{ fontSize: '12px' }} />
-                        </Grid>
-                      </Grid>
-                    </Paper>
+
+
+                {/* Book Names Section */}
+                <Grid container spacing={1} sx={{ mt: 1 }} alignItems="center">
+                  <Grid item md={4}>
+                    <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
+                      Book Names - comma separated
+                    </Typography>
+                    <Box
+                      component="textarea"
+                      rows="3"
+                      sx={{
+                        width: '250px',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        resize: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item md={3} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Button
+                      size="small"
+                      fullWidth
+                      sx={{
+                        bgcolor: '#fff3cd',
+                        fontSize: '12px',
+                        textTransform: 'none',
+                        color: 'black',
+                        border: '1px solid #ccc',
+                        '&:hover': { bgcolor: '#e6e6e6' },
+                      }}
+                    >
+                      Load Trades from Books
+                    </Button>
+                  </Grid>
+                  <Grid item md={2} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Button
+                      size="small"
+                      fullWidth
+                      sx={{
+                        bgcolor: '#fff3cd',
+                        fontSize: '12px',
+                        textTransform: 'none',
+                        color: 'black',
+                        border: '1px solid #ccc',
+                        '&:hover': { bgcolor: '#e6e6e6' },
+                      }}
+                    >
+                      Clear Books
+                    </Button>
+                  </Grid>
+                </Grid>
+
+
+                {/* Dataset FullName and Scenario FullName */}
+                <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid item md={3}>
+                    <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                      DataSet FullName
+                    </Typography>
+                    <Box
+                      component="input"
+                      defaultValue="Official"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem', // equivalent to 12px
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item md={3}>
+                    <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                      Scenario FullName
+                    </Typography>
+                    <Box
+                      component="input"
+                      defaultValue="Base"
+                      type="text"
+                      fullWidth
+                      sx={{
+                        width: '100%',
+                        fontSize: '0.75rem',
+                        padding: '6px 8px',
+                        border: '1px solid #c4c4c4',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        '&:focus': {
+                          borderColor: '#1976d2',
+                          boxShadow: '0 0 0 1px #1976d2',
+                        },
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+
+              </Paper>
             </Box>
           </Box>
         )}
@@ -450,14 +766,15 @@ const TradeEntryFormMUI = () => {
           </Box>
         )}
 
-        {/* --- Action Bar --- */}
-        <Box p={2}>
+        {/* Action Bar */}
+        <Box sx={{ p: 2 }}>
+          {/* Action Buttons */}
           <Box display="flex" alignItems="center" flexWrap="wrap" mb={1}>
             <Button
               size="small"
               sx={{
                 bgcolor: '#85c9e2',
-                textTransform: 'none',
+                textTransform: 'math-auto',
                 border: '1px solid #999',
                 color: '#000',
                 fontSize: '12px',
@@ -473,7 +790,7 @@ const TradeEntryFormMUI = () => {
               size="small"
               sx={{
                 bgcolor: '#85c9e2',
-                textTransform: 'none',
+                textTransform: 'math-auto',
                 border: '1px solid #999',
                 color: '#000',
                 fontSize: '12px',
@@ -489,7 +806,7 @@ const TradeEntryFormMUI = () => {
               size="small"
               sx={{
                 bgcolor: '#85c9e2',
-                textTransform: 'none',
+                textTransform: 'math-auto',
                 border: '1px solid #999',
                 color: '#000',
                 fontSize: '12px',
@@ -505,7 +822,7 @@ const TradeEntryFormMUI = () => {
               size="small"
               sx={{
                 bgcolor: '#85c9e2',
-                textTransform: 'none',
+                textTransform: 'math-auto',
                 border: '1px solid #999',
                 color: '#000',
                 fontSize: '12px',
@@ -601,99 +918,110 @@ const TradeEntryFormMUI = () => {
               Help
             </Box>
           </Box>
-        </Box>
 
-        {/* Loaded Trades Table */}
-        <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
-          <Box border="1px solid #999" bgcolor="white" mb={2}>
+          {/* Table Section */}
+          <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
+            {/* Scroll container */}
             <Box
               sx={{
-                width: '100%',
-                bgcolor: '#4a6a8a',
-                color: '#fff',
-                fontSize: '13px',
-                fontWeight: 'bold',
-                px: 1,
-                py: '4px',
-                whiteSpace: 'nowrap',
+                border: '1px solid #999',
+                backgroundColor: 'white',
+                mb: 2,
               }}
             >
-              Loaded Trades Table
-            </Box>
-            <Box p={0}>
-              <Box sx={{ overflowX: 'auto' }}>
-                <Box
-                  component="table"
-                  sx={{
-                    width: '100%',
-                    borderCollapse: 'collapse',
-                    fontSize: '12px',
-                    minWidth: '1200px',
-                    '& th, & td': {
-                      border: '1px solid #7f7f7f',
-                      padding: '4px',
-                      whiteSpace: 'nowrap',
-                    },
-                    '& thead': {
-                      backgroundColor: '#eaeaea',
-                    },
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      <th>ProductType → IssuerName → TradeID</th>
-                      <th>Withhold</th>
-                      <th>Sector</th>
-                      <th>Currency</th>
-                      <th>MaturityDate</th>
-                      <th>Position Native</th>
-                      <th>MTM Native</th>
-                      <th>CS01 Native</th>
-                      <th>Trade Cnt.</th>
-                      <th>Gross Notl. Native</th>
-                      <th>InstrumentId</th>
-                      <th>Crd Crv Sub</th>
-                      <th>DocClause</th>
-                      <th>ContractualSpread</th>
-                      <th>Tier</th>
-                      <th>Ticker</th>
-                      <th>LegalEntity</th>
-                      <th>BusinessGroup</th>
-                      <th>BusinessType</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rows.map((r, i) => (
-                      <tr key={i}>
-                        <td>
-                          {r.productType} → {r.issuerName} → TRD{i + 1}
-                        </td>
-                        <td>{r.withhold}</td>
-                        <td>-</td>
-                        <td>{r.currency}</td>
-                        <td>{r.maturityDate}</td>
-                        <td>{r.size}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>1</td>
-                        <td>{r.notionalUsd}</td>
-                        <td>{r.instrumentId}</td>
-                        <td>{r.subordination}</td>
-                        <td>{r.docClause}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>{r.issuerName}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+              {/* Table Header */}
+              <Box
+                sx={{
+                  width: '100%',
+                  backgroundColor: '#4a6a8a',
+                  color: '#fff',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  px: 1,
+                  py: '4px',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Loaded Trades Table
+              </Box>
+
+              {/* Section Body */}
+              <Box sx={{ p: 0 }}>
+                {/* Table Wrapper (scroll container) */}
+                <Box sx={{ overflowX: 'auto' }}>
+                  <Box
+                    component="table"
+                    sx={{
+                      width: '100%',
+                      borderCollapse: 'collapse',
+                      fontSize: '12px',
+                      minWidth: '1200px', // ensures horizontal scrolling
+                      '& th, & td': {
+                        border: '1px solid #7f7f7f',
+                        padding: '4px',
+                        whiteSpace: 'nowrap',
+                      },
+                      '& thead': {
+                        backgroundColor: '#eaeaea',
+                      },
+                    }}
+                  >
+                    <thead>
+                      <tr>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>
+                          ProductType-&gt;IssuerName-&gt;TradeID
+                        </th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Withhold</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Sector</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Currency</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MaturityDate</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Position Native</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MTM Native</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>CS01 Native</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Trade Cnt.</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Gross Notl. Native</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>InstrumentId</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Crd Crv Sub</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>DocClause</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>ContractualSpread</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Tier</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Ticker</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>LegalEntity</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessGroup</th>
+                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessType</th>
                       </tr>
-                    ))}
-                  </tbody>
+                    </thead>
+                    <tbody>
+                      {rows.map((r, i) => (
+                        <tr key={i}>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.productType} → {r.issuerName} → TRD{i + 1}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.withhold}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.currency}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.maturityDate}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.size}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>1</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.notionalUsd}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.instrumentId}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.subordination}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.docClause}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.issuerName}</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Box>
                 </Box>
               </Box>
             </Box>
-          </Box>
-        </Paper>
+          </Paper>
+        </Box>
       </Box>
     </Box>
   );
