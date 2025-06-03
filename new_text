@@ -98,10 +98,15 @@ const TradeEntryFormMUI = () => {
                       defaultValue="CD Swap"
                       fullWidth
                       sx={{
-                        height: '32px', // Match input height
-                        fontSize: '0.75rem', // Match input font size
+                        fontSize: '0.75rem',
                         '& .MuiSelect-select': {
-                          padding: '6px 8px', // Match input padding
+                          padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     >
@@ -114,10 +119,15 @@ const TradeEntryFormMUI = () => {
                     <Select
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
                         '& .MuiSelect-select': {
                           padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     >
@@ -127,21 +137,15 @@ const TradeEntryFormMUI = () => {
 
                   <Grid item md={2}>
                     <Typography variant="caption">Instrument ID</Typography>
-                    <Box
-                      component="input"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       defaultValue="007GB6"
-                      type="text"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -149,25 +153,20 @@ const TradeEntryFormMUI = () => {
 
                   <Grid item md={1}>
                     <Typography variant="caption">Withhold</Typography>
-                    <Box
-                      component="input"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
                   </Grid>
                 </Grid>
+
 
               </Box>
 
@@ -201,10 +200,15 @@ const TradeEntryFormMUI = () => {
                       defaultValue="Sr Unsecured"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
                         '& .MuiSelect-select': {
                           padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     >
@@ -218,10 +222,15 @@ const TradeEntryFormMUI = () => {
                       defaultValue="CR14"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
                         '& .MuiSelect-select': {
                           padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     >
@@ -235,10 +244,15 @@ const TradeEntryFormMUI = () => {
                       defaultValue="EUR"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
                         '& .MuiSelect-select': {
                           padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     >
@@ -248,21 +262,14 @@ const TradeEntryFormMUI = () => {
 
                   <Grid item md={1}>
                     <Typography variant="caption">Coupon</Typography>
-                    <Box
-                      component="input"
-                      defaultValue="100"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -270,20 +277,14 @@ const TradeEntryFormMUI = () => {
 
                   <Grid item md={1}>
                     <Typography variant="caption">Tenor</Typography>
-                    <Box
-                      component="input"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -292,32 +293,33 @@ const TradeEntryFormMUI = () => {
                   <Grid item md={3}>
                     <Typography variant="caption">Maturity</Typography>
                     <Box display="flex" gap={1}>
-                      <Box
-                        component="input"
-                        type="date"
-                        defaultValue="2030-06-20"
+                      <TextField
+                        size="small"
+                        variant="outlined"
                         fullWidth
-                        sx={{
-                          width: '100%',
-                          fontSize: '0.75rem',
-                          padding: '6px 8px',
-                          border: '1px solid #c4c4c4',
-                          borderRadius: '4px',
-                          outline: 'none',
-                          '&:focus': {
-                            borderColor: '#1976d2',
-                            boxShadow: '0 0 0 1px #1976d2',
+                        type="date"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        inputProps={{
+                          style: {
+                            fontSize: '0.75rem',
+                            padding: '6px 8px'
                           },
                         }}
                       />
                       <Select
                         defaultValue="5Y"
                         sx={{
-                          width: '80px',
-                          height: '32px',
                           fontSize: '0.75rem',
                           '& .MuiSelect-select': {
                             padding: '6px 8px',
+                          },
+                        }}
+                        inputProps={{
+                          style: {
+                            fontSize: '0.75rem',
+                            padding: '6px 8px'
                           },
                         }}
                       >
@@ -359,9 +361,16 @@ const TradeEntryFormMUI = () => {
                       defaultValue="Buy"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
-                        '& .MuiSelect-select': { padding: '6px 8px' },
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
+                        },
                       }}
                     >
                       <MenuItem value="Buy">Buy</MenuItem>
@@ -369,60 +378,42 @@ const TradeEntryFormMUI = () => {
                   </Grid>
                   <Grid item md={2}>
                     <Typography variant="caption">Size (MM)</Typography>
-                    <Box
-                      component="input"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
                   </Grid>
                   <Grid item md={3}>
                     <Typography variant="caption">Notional (NC)</Typography>
-                    <Box
-                      component="input"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
                   </Grid>
                   <Grid item md={3}>
                     <Typography variant="caption">Notional ($)</Typography>
-                    <Box
-                      component="input"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -462,9 +453,16 @@ const TradeEntryFormMUI = () => {
                       defaultValue="EUROIS"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
-                        '& .MuiSelect-select': { padding: '6px 8px' },
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
+                        },
                       }}
                     >
                       <MenuItem value="EUROIS">EUROIS</MenuItem>
@@ -476,9 +474,16 @@ const TradeEntryFormMUI = () => {
                       defaultValue="Quarterly"
                       fullWidth
                       sx={{
-                        height: '32px',
                         fontSize: '0.75rem',
-                        '& .MuiSelect-select': { padding: '6px 8px' },
+                        '& .MuiSelect-select': {
+                          padding: '6px 8px',
+                        },
+                      }}
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
+                        },
                       }}
                     >
                       <MenuItem value="Quarterly">Quarterly</MenuItem>
@@ -486,21 +491,14 @@ const TradeEntryFormMUI = () => {
                   </Grid>
                   <Grid item md={3}>
                     <Typography variant="caption">Standard Funding Id</Typography>
-                    <Box
-                      component="input"
-                      type="text"
-                      defaultValue="EUROI"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -651,25 +649,19 @@ const TradeEntryFormMUI = () => {
                     <Typography variant="body2" sx={{ fontSize: '12px', mb: 0.5 }}>
                       Book Names - comma separated
                     </Typography>
-                    <Box
-                      component="textarea"
-                      rows="3"
+                    <TextField
+                      multiline
+                      rows={3}
+                      size="small"
+                      variant="outlined"
                       sx={{
                         width: '250px',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        resize: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
-                        },
+                        fontSize: '12px',
+                        '& .MuiInputBase-root': { fontSize: '12px' },
                       }}
                     />
                   </Grid>
-                  <Grid item md={3} sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Grid item md={3} display="flex" alignItems="center">
                     <Button
                       size="small"
                       fullWidth
@@ -685,7 +677,7 @@ const TradeEntryFormMUI = () => {
                       Load Trades from Books
                     </Button>
                   </Grid>
-                  <Grid item md={2} sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Grid item md={2} display="flex" alignItems="center">
                     <Button
                       size="small"
                       fullWidth
@@ -703,28 +695,20 @@ const TradeEntryFormMUI = () => {
                   </Grid>
                 </Grid>
 
-
-                {/* Dataset FullName and Scenario FullName */}
+                {/* Dataset & Scenario */}
                 <Grid container spacing={1} sx={{ mt: 1 }}>
                   <Grid item md={3}>
                     <Typography variant="body2" sx={{ fontSize: '12px' }}>
                       DataSet FullName
                     </Typography>
-                    <Box
-                      component="input"
-                      defaultValue="Official"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem', // equivalent to 12px
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
@@ -733,27 +717,19 @@ const TradeEntryFormMUI = () => {
                     <Typography variant="body2" sx={{ fontSize: '12px' }}>
                       Scenario FullName
                     </Typography>
-                    <Box
-                      component="input"
-                      defaultValue="Base"
-                      type="text"
+                    <TextField
+                      size="small"
+                      variant="outlined"
                       fullWidth
-                      sx={{
-                        width: '100%',
-                        fontSize: '0.75rem',
-                        padding: '6px 8px',
-                        border: '1px solid #c4c4c4',
-                        borderRadius: '4px',
-                        outline: 'none',
-                        '&:focus': {
-                          borderColor: '#1976d2',
-                          boxShadow: '0 0 0 1px #1976d2',
+                      inputProps={{
+                        style: {
+                          fontSize: '0.75rem',
+                          padding: '6px 8px'
                         },
                       }}
                     />
                   </Grid>
                 </Grid>
-
               </Paper>
             </Box>
           </Box>
@@ -918,111 +894,108 @@ const TradeEntryFormMUI = () => {
               Help
             </Box>
           </Box>
-
-          {/* Table Section */}
-          <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
-            {/* Scroll container */}
-            <Box
-              sx={{
-                border: '1px solid #999',
-                backgroundColor: 'white',
-                mb: 2,
-              }}
-            >
-              {/* Table Header */}
-              <Box
-                sx={{
-                  width: '100%',
-                  backgroundColor: '#4a6a8a',
-                  color: '#fff',
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  px: 1,
-                  py: '4px',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Loaded Trades Table
-              </Box>
-
-              {/* Section Body */}
-              <Box sx={{ p: 0 }}>
-                {/* Table Wrapper (scroll container) */}
-                <Box sx={{ overflowX: 'auto' }}>
-                  <Box
-                    component="table"
-                    sx={{
-                      width: '100%',
-                      borderCollapse: 'collapse',
-                      fontSize: '12px',
-                      minWidth: '1200px', // ensures horizontal scrolling
-                      '& th, & td': {
-                        border: '1px solid #7f7f7f',
-                        padding: '4px',
-                        whiteSpace: 'nowrap',
-                      },
-                      '& thead': {
-                        backgroundColor: '#eaeaea',
-                      },
-                    }}
-                  >
-                    <thead>
-                      <tr>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>
-                          ProductType-&gt;IssuerName-&gt;TradeID
-                        </th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Withhold</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Sector</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Currency</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MaturityDate</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Position Native</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MTM Native</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>CS01 Native</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Trade Cnt.</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Gross Notl. Native</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>InstrumentId</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Crd Crv Sub</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>DocClause</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>ContractualSpread</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Tier</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Ticker</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>LegalEntity</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessGroup</th>
-                        <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessType</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rows.map((r, i) => (
-                        <tr key={i}>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.productType} → {r.issuerName} → TRD{i + 1}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.withhold}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.currency}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.maturityDate}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.size}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>1</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.notionalUsd}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.instrumentId}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.subordination}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.docClause}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.issuerName}</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                          <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Paper>
         </Box>
       </Box>
+      {/* Table Section */}
+      <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
+        <Box
+          sx={{
+            border: '1px solid #999',
+            backgroundColor: 'white',
+            mb: 2,
+          }}
+        >
+          {/* Table Header */}
+          <Box
+            sx={{
+              width: '100%',
+              backgroundColor: '#4a6a8a',
+              color: '#fff',
+              fontSize: '13px',
+              fontWeight: 'bold',
+              px: 1,
+              py: '4px',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Loaded Trades Table
+          </Box>
+
+          {/* Table Wrapper */}
+          <Box sx={{ p: 0, width: '100%' }}>
+            <Box sx={{ overflowX: 'auto', width: '100%' }}>
+              <Box
+                component="table"
+                sx={{
+                  width: '100%',
+                  minWidth: '1200px', // horizontal scrolling when needed
+                  borderCollapse: 'collapse',
+                  fontSize: '12px',
+                  '& th, & td': {
+                    border: '1px solid #7f7f7f',
+                    padding: '4px',
+                    whiteSpace: 'nowrap',
+                  },
+                  '& thead': {
+                    backgroundColor: '#eaeaea',
+                  },
+                }}
+              >
+                <thead>
+                  <tr>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>
+                      ProductType-&gt;IssuerName-&gt;TradeID
+                    </th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Withhold</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Sector</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Currency</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MaturityDate</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Position Native</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>MTM Native</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>CS01 Native</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Trade Cnt.</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Gross Notl. Native</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>InstrumentId</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Crd Crv Sub</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>DocClause</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>ContractualSpread</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Tier</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>Ticker</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>LegalEntity</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessGroup</th>
+                    <th style={{ border: '1px solid #7f7f7f', padding: '4px', whiteSpace: 'nowrap' }}>BusinessType</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((r, i) => (
+                    <tr key={i}>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.productType} → {r.issuerName} → TRD{i + 1}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.withhold}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.currency}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.maturityDate}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.size}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>1</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.notionalUsd}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.instrumentId}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.subordination}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.docClause}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>{r.issuerName}</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                      <td style={{ border: '1px solid #7f7f7f', padding: '4px' }}>-</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Paper>
     </Box>
   );
 };
