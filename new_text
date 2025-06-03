@@ -42,7 +42,7 @@ const TradeEntryFormMUI = () => {
 
   return (
     <Box mt={3} fontFamily="Roboto, sans-serif">
-      <Box width="100%" maxWidth="1200px">
+      <Box width="100%" maxWidth="1200px" overflowX= 'hidden'>
         {/* Top Tab Header */}
         <Box display="flex" borderBottom="1px solid #dee2e6" fontSize="13px">
           {['Load Batch Trades', 'Trade Entry', 'Manage Portfolio'].map((tab) => (
@@ -897,14 +897,8 @@ const TradeEntryFormMUI = () => {
         </Box>
       </Box>
       {/* Table Section */}
-      <Paper sx={{ width: '100%', border: '1px solid #ccc' }}>
-        <Box
-          sx={{
-            border: '1px solid #999',
-            backgroundColor: 'white',
-            mb: 2,
-          }}
-        >
+      <Box border="1px solid #dee2e6" borderTop="none" p={2} bgcolor="white">
+            <Box fontSize="12px">
           {/* Table Header */}
           <Box
             sx={{
@@ -995,7 +989,7 @@ const TradeEntryFormMUI = () => {
             </Box>
           </Box>
         </Box>
-      </Paper>
+      </Box>
     </Box>
   );
 };
